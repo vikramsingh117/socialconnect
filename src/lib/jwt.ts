@@ -14,10 +14,10 @@ export function generateToken(user: User): string {
   )
 }
 
-export function verifyToken(token: string): any {
+export function verifyToken(token: string): { id: string; email: string; username: string } | null {
   try {
-    return jwt.verify(token, JWT_SECRET)
-  } catch (error) {
+    return jwt.verify(token, JWT_SECRET) as { id: string; email: string; username: string }
+  } catch {
     return null
   }
 }

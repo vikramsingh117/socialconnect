@@ -34,7 +34,10 @@ export async function authenticateUser(request: NextRequest): Promise<User | nul
   }
 }
 
-export function requireAuth(handler: Function) {
+type HandlerWithUser = (request: NextRequest, user: User) => Promise<NextResponse> | NextResponse
+type HandlerWithOptionalUser = (request: NextRequest, user: User | null) => Promise<NextResponse> | NextResponse
+
+export function requireAuth(handler: HandlerWithUser) {
   return async (request: NextRequest) => {
     const user = await authenticateUser(request)
     
@@ -49,7 +52,7 @@ export function requireAuth(handler: Function) {
   }
 }
 
-export function optionalAuth(handler: Function) {
+export function optionalAuth(handler: HandlerWithOptionalUser) {
   return async (request: NextRequest) => {
     const user = await authenticateUser(request)
     return handler(request, user)

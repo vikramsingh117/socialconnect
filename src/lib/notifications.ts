@@ -2,7 +2,8 @@ import { supabase } from './supabase'
 import { Notification } from '../types'
 
 // Module-level subscriptions map
-const subscriptions: Map<string, any> = new Map()
+type RealtimeChannel = ReturnType<typeof supabase.channel>
+const subscriptions: Map<string, RealtimeChannel> = new Map()
 
 // Subscribe to real-time notifications for a user
 export function subscribeToNotifications(
