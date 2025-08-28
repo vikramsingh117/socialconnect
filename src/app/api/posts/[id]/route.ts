@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { requireAuth, optionalAuth } from '../../../../lib/auth'
-import { supabaseAdmin } from '../../../../lib/supabase'
-import { ApiResponse, Post } from '../../../../types'
+import { requireAuth, optionalAuth } from '@/lib/auth'
+import { supabaseAdmin } from '@/lib/supabase'
+import { ApiResponse, Post } from '@/types'
 
 async function getPost(request: NextRequest, user: any) {
   try {

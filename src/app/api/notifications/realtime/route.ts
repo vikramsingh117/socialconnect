@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { requireAuth } from '../../../../lib/auth'
+import { requireAuth } from '@/lib/auth'
 
 async function handleRealtimeNotifications(request: NextRequest, user: any) {
   try {

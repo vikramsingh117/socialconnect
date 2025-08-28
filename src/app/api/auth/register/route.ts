@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import bcrypt from 'bcryptjs'
-import { supabaseAdmin } from '../../../../lib/supabase'
-import { generateToken } from '../../../../lib/jwt'
-import { generateUsername, validateEmail, validateUsername } from '../../../../lib/utils'
-import { User, ApiResponse, AuthResponse } from '../../../../types'
+import { supabaseAdmin } from '@/lib/supabase'
+import { generateToken } from '@/lib/jwt'
+import { generateUsername, validateEmail, validateUsername } from '@/lib/utils'
+import { User, ApiResponse, AuthResponse } from '@/types'
 
 export async function POST(request: NextRequest) {
   try {

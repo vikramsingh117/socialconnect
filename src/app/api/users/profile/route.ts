@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { requireAuth } from '../../../../lib/auth'
-import { supabaseAdmin } from '../../../../lib/supabase'
-import { ApiResponse, User } from '../../../../types'
+import { requireAuth } from '@/lib/auth'
+import { supabaseAdmin } from '@/lib/supabase'
+import { ApiResponse, User } from '@/types'
 
 async function getProfile(request: NextRequest, user: User) {
   try {

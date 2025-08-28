@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { requireAuth } from '../../../../lib/auth'
-import { supabaseAdmin } from '../../../../lib/supabase'
-import { ApiResponse } from '../../../../types'
+import { requireAuth } from '@/lib/auth'
+import { supabaseAdmin } from '@/lib/supabase'
+import { ApiResponse } from '@/types'
 
 async function followUser(request: NextRequest, user: any) {
   try {

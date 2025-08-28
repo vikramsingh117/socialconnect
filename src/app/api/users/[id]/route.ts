@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { optionalAuth } from '../../../../lib/auth'
-import { supabaseAdmin } from '../../../../lib/supabase'
-import { ApiResponse, User } from '../../../../types'
+import { optionalAuth } from '@/lib/auth'
+import { supabaseAdmin } from '@/lib/supabase'
+import { ApiResponse, User } from '@/types'
 
 async function getUserById(request: NextRequest, currentUser: User | null) {
   try {
