@@ -183,9 +183,9 @@ export default function TestRealtime() {
           <h3 className="text-lg font-semibold mb-3">How to Test:</h3>
           <ol className="list-decimal list-inside space-y-2 text-sm">
             <li>Enter a user ID to subscribe to their notifications</li>
-            <li>Click "Subscribe" to start listening for real-time updates</li>
+            <li>Click &quot;Subscribe&quot; to start listening for real-time updates</li>
             <li>Enter another user ID to trigger notifications from</li>
-            <li>Click "Trigger Test Notification" to create a follow notification</li>
+            <li>Click &quot;Trigger Test Notification&quot; to create a follow notification</li>
             <li>Watch the notification appear instantly in real-time!</li>
             <li>Click on notifications to mark them as read</li>
           </ol>

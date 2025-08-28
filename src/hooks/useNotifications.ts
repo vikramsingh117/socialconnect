@@ -13,12 +13,14 @@ interface UseNotificationsReturn {
   unsubscribeFromRealtime: () => void
 }
 
+type RealtimeChannel = ReturnType<typeof supabase.channel>
+
 export function useNotifications(userId?: string): UseNotificationsReturn {
   const [notifications, setNotifications] = useState<Notification[]>([])
   const [unreadCount, setUnreadCount] = useState(0)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [subscription, setSubscription] = useState<any>(null)
+  const [subscription, setSubscription] = useState<RealtimeChannel | null>(null)
 
   // Fetch notifications
   const fetchNotifications = useCallback(async () => {
@@ -42,8 +44,8 @@ export function useNotifications(userId?: string): UseNotificationsReturn {
       if (error) throw error
 
       setNotifications(data || [])
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err))
     } finally {
       setLoading(false)
     }
@@ -63,7 +65,7 @@ export function useNotifications(userId?: string): UseNotificationsReturn {
       if (error) throw error
 
       setUnreadCount(count || 0)
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error fetching unread count:', err)
     }
   }, [userId])
@@ -92,8 +94,8 @@ export function useNotifications(userId?: string): UseNotificationsReturn {
 
       // Update unread count
       setUnreadCount(prev => Math.max(0, prev - 1))
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err))
     }
   }, [userId])
 
@@ -117,8 +119,8 @@ export function useNotifications(userId?: string): UseNotificationsReturn {
 
       // Reset unread count
       setUnreadCount(0)
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err))
     }
   }, [userId])
 
