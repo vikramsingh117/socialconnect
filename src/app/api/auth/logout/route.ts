@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { ApiResponse } from '../../../../types'
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     // For JWT-based auth, logout is handled client-side by removing the token
     // This endpoint can be used for additional cleanup if needed

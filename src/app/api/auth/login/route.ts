@@ -56,8 +56,8 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Remove password from user object
-    const { password: _, ...userWithoutPassword } = user
+    // Remove password from user object without binding an unused var
+    const userWithoutPassword = (({ password, ...rest }) => rest)(user)
 
     // Generate JWT token
     const token = generateToken(userWithoutPassword)
