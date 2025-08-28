@@ -23,7 +23,7 @@ export default function Home() {
     markAllAsRead,
     subscribeToRealtime,
     unsubscribeFromRealtime 
-  } = useNotifications(isClient ? user?.id : undefined)
+  } = useNotifications(isClient ? user?.user?.id : undefined)
 
   // Set client flag after hydration
   useEffect(() => {
@@ -32,16 +32,16 @@ export default function Home() {
 
   // Subscribe to real-time notifications when user logs in
   useEffect(() => {
-    if (isClient && user?.id) {
-      subscribeToRealtime(user.id)
+    if (isClient && user?.user?.id) {
+      subscribeToRealtime(user.user.id)
       fetchPosts()
     }
     return () => {
-      if (isClient && user?.id) {
+      if (isClient && user?.user?.id) {
         unsubscribeFromRealtime()
       }
     }
-  }, [isClient, user?.id])
+  }, [isClient, user?.user?.id])
 
   const apiCall = async (endpoint: string, options: any = {}) => {
     const url = `/api${endpoint}`

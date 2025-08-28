@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { requireAuth } from '../../../src/lib/auth'
-import { supabaseAdmin } from '../../../src/lib/supabase'
-import { ApiResponse, Notification } from '../../../src/types'
+import { requireAuth } from '../../../lib/auth'
+import { supabaseAdmin } from '../../../lib/supabase'
+import { ApiResponse, Notification } from '../../../types'
 
 async function getNotifications(request: NextRequest, user: any) {
   try {

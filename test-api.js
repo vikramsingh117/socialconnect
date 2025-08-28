@@ -169,10 +169,10 @@ async function testFollowSystem() {
   });
   
   // Unfollow
-  // await apiCall(`/users/follow?user_id=${userId2}`, {
-  //   method: 'DELETE',
-  //   headers: { 'Authorization': `Bearer ${authToken}` }
-  // });
+  await apiCall(`/users/follow?user_id=${userId2}`, {
+    method: 'DELETE',
+    headers: { 'Authorization': `Bearer ${authToken}` }
+  });
 }
 
 async function testPostCreation() {
