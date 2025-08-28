@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { ApiResponse } from '../../../src/types'
+import { ApiResponse } from '@/types'
 
 export async function GET(request: NextRequest) {
   const response: ApiResponse = {
